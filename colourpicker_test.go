@@ -101,6 +101,14 @@ func TestHSLKeepsTheHueOfAGrey(t *testing.T) {
 	}
 }
 
+func TestNoColourStartsTheHSLSlidersFromThePink(t *testing.T) {
+	plain := ansi.Strip(New(WithTab(TabHSL)).View())
+	if !strings.Contains(plain, "320°") {
+		t.Errorf("the hue of the starting pink is not shown:
+%s", plain)
+	}
+}
+
 func TestSwatchesMoveByTheirLayout(t *testing.T) {
 	m := New(WithValue("0"), WithTab(Tab16))
 	steps := []struct {

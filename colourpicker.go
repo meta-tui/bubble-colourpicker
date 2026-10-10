@@ -50,6 +50,7 @@ type Model struct {
 	// kept because a grey or a black has no hue to read back from the RGB.
 	hsl    pickerHSL
 	hslFor string
+	hslOK  bool
 }
 
 // Option configures New.
@@ -452,7 +453,7 @@ func (m Model) current() pickerRGB {
 // hslNow is the hue, saturation and lightness of the colour; the remembered
 // one while it still describes the value.
 func (m Model) hslNow() pickerHSL {
-	if m.hslFor == m.value {
+	if m.hslOK && m.hslFor == m.value {
 		return m.hsl
 	}
 	return m.current().hsl()
@@ -483,7 +484,7 @@ func (m Model) setSlider(i int, v float64) Model {
 			h.l = v / 100
 		}
 		m.value = h.rgb().hex()
-		m.hsl, m.hslFor = h, m.value
+		m.hsl, m.hslFor, m.hslOK = h, m.value, true
 		return m
 	}
 	c := m.current()
