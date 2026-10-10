@@ -48,6 +48,24 @@ func TestValueIsNormalisedAndBadOnesAreIgnored(t *testing.T) {
 	}
 }
 
+func TestHexIsTheColourWhateverTheValueIs(t *testing.T) {
+	cases := []struct{ value, want string }{
+		{"", ""},
+		{"#ff007f", "#ff007f"},
+		{"#f0a", "#ff00aa"},
+		{"9", "#ff0000"},
+		{"16", "#000000"},
+		{"21", "#0000ff"},
+		{"232", "#080808"},
+		{"255", "#eeeeee"},
+	}
+	for _, c := range cases {
+		if got := New(WithValue(c.value)).Hex(); got != c.want {
+			t.Errorf("Hex of %q = %q, want %q", c.value, got, c.want)
+		}
+	}
+}
+
 func TestTabsAreChosenByNameAndKeepTheirOrder(t *testing.T) {
 	m := New(WithTabs("hsl", "16", "bogus", "16"), WithTab("16"))
 	if got := strings.Join(m.Tabs(), ","); got != "HSL,16" {
@@ -230,7 +248,7 @@ func TestComponentDescriptionMatchesTheCode(t *testing.T) {
 	}
 	options := map[string]bool{"WithValue": true, "WithTabs": true, "WithTab": true, "WithAccent": true, "WithOrigin": true}
 	setters := map[string]bool{"SetValue": true, "SetTab": true, "SetSlide": true, "SetAccent": true, "SetOrigin": true}
-	getters := map[string]bool{"Value": true, "Tab": true, "Slide": true, "Tabs": true}
+	getters := map[string]bool{"Value": true, "Tab": true, "Slide": true, "Tabs": true, "Hex": true}
 	for _, p := range d.Props {
 		if p.Go.Option != "" && !options[p.Go.Option] {
 			t.Errorf("prop %s: no option %s", p.Key, p.Go.Option)

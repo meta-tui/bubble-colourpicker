@@ -54,6 +54,7 @@ little room leaves it out: `WithTabs("16", "RGB", "HSL")`.
 |---|---|
 | `New(opts...)` | `WithValue`, `WithTabs`, `WithTab`, `WithAccent`, `WithOrigin` |
 | `Value()`, `SetValue(v)` | the colour; a bad value is ignored |
+| `Hex()` | the colour as `#rrggbb` even when the value is a palette number |
 | `Tab()`, `SetTab(t)`, `Tabs()` | the tab shown and the tabs available |
 | `Slide()`, `SetSlide(i)` | the slider the keyboard is on |
 | `SetAccent(c)`, `SetOrigin(x, y)` | the accent colour; where it is drawn |
