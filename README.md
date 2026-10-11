@@ -2,19 +2,19 @@
 
 A colour picker for [Bubble Tea](https://github.com/charmbracelet/bubbletea) v2 programs. Tabs for the 16 and
 256 terminal palettes (swatches) and for RGB and HSL (gradient sliders), a preview and the chosen value, with
-the keyboard and the mouse. It is the colour dialog of [Cuppa](https://github.com/meta-tui/cuppa), as a
+the keyboard and the mouse. It is the colour dialog of [Cuppa](https://github.com/meta-ui-labs/cuppa), as a
 component you can drop into any program.
 
 ![The colour picker on its RGB tab](docs/screenshot.png)
 
 ```sh
-go get github.com/meta-tui/bubble-colourpicker
+go get github.com/meta-ui-labs/bubble-colourpicker
 ```
 
 ## Use
 
 ```go
-import colourpicker "github.com/meta-tui/bubble-colourpicker"
+import colourpicker "github.com/meta-ui-labs/bubble-colourpicker"
 
 picker := colourpicker.New(
     colourpicker.WithValue("#ff007f"),         // "", a palette number such as "212", or #rrggbb
@@ -69,7 +69,7 @@ The *Themes* tab of Cuppa's dialog (342 terminal colour schemes) and typing a va
 
 The repository carries a machine-readable description of the component, so that a design tool can list it,
 show its properties and generate the Go that uses it. The format is the *Cuppa component description*
-([spec](https://github.com/meta-tui/cuppa/blob/main/docs/spec/cuppa-component.md)): name, Go import path,
+([spec](https://github.com/meta-ui-labs/cuppa/blob/main/docs/spec/cuppa-component.md)): name, Go import path,
 how to construct it, its properties with their defaults, and the messages it sends. A repository that
 publishes one can be imported into Cuppa by its address.
 

@@ -1,4 +1,4 @@
-module github.com/meta-tui/bubble-colourpicker
+module github.com/meta-ui-labs/bubble-colourpicker
 
 go 1.26.0
 

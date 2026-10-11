@@ -9,7 +9,7 @@ import (
 	tea "charm.land/bubbletea/v2"
 	"charm.land/lipgloss/v2"
 
-	colourpicker "github.com/meta-tui/bubble-colourpicker"
+	colourpicker "github.com/meta-ui-labs/bubble-colourpicker"
 )
 
 type model struct {
